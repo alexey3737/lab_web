@@ -71,7 +71,6 @@ plt.plot(x3,norma3)
 plt.legend(['Все пользователи','Новые пользователи','Трафик с мобильных телефонов'])
 plt.show()
 
-
 korr1 = []
 zero = 0
 one = 1
@@ -97,7 +96,6 @@ plt.plot(x3,result1_3)
 plt.legend(['Новые пользователи','Трафик с мобильных телефонов'])
 plt.show()
 
-
 #Прывышение первого критерия относительно двух остальных
 result_2_1 = norma2 - normal
 result_2_1 = np.absolute(result_2_1)
@@ -115,7 +113,6 @@ plt.plot(x3,result_2_3)
 plt.legend(['Все пользователи','Трафик с мобильных телефонов'])
 plt.show()
 
-
 #Прывышение первого критерия относительно двух остальных
 result_3_1 = norma3 - normal
 result_3_1 = np.absolute(result_3_1)
@@ -131,4 +128,34 @@ plt.subplot(111)
 plt.plot(x2,result_3_1)
 plt.plot(x3,result_3_2)
 plt.legend(['Все пользователи','Новые пользователи'])
+plt.show()
+
+#Доверенный интервал 1 графика
+aver1_2 = np.average(normal)
+normal = np.where(normal > aver1_2*2, normal, 0)
+print(aver1_2)#0.28
+print(normal)
+plt.subplot(111)
+plt.plot(x1,normal)
+plt.legend(['Все пользователи'])
+plt.show()
+
+#Доверенный интервал 2 графика
+aver1_2 = np.average(norma2)
+norma2 = np.where(norma2 > aver1_2*2, norma2, 0)
+print(aver1_2)#0.27
+print(norma2)
+plt.subplot(111)
+plt.plot(x2,norma2)
+plt.legend(['Новые пользователи'])
+plt.show()
+
+#Доверенный интервал 3 графика
+aver1_2 = np.average(norma3)
+norma3 = np.where(norma3 > aver1_2*2, norma3, 0)
+print(aver1_2) #0.3
+print(norma3)
+plt.subplot(111)
+plt.plot(x3,norma3)
+plt.legend(['Трафик с мобильных телефонов'])
 plt.show()
